@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "test";
+}
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.9.1.intellisense.js"></script>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+
+<style>
+    body {
+  padding : 10px ;
+  
+}
+
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+</style>
+<div style="margin-top:100px">
+    <ul class="nav nav-pills">
+        <li class="active"><a href="#1" data-toggle="tab">@*<span class="glyphicon glyphicon-home"></span>*@ GDP</a></li>
+        <li><a href="#2" data-toggle="tab">@*<span class="glyphicon glyphicon-info-sign"></span>*@ About</a></li>
+        <li><a href="#3" data-toggle="tab"><i class="fa fa-envelope-o"></i> Contact</a></li>
+    </ul>
+    <div class="tab-content clearfix" >
+        <div id="1" class="active tab-pane">1213</div>
+        <div id="2" class="tab-pane">22</div>
+        <div id="3" class="tab-pane">4444</div>
+    </div>
+
+
+
+
+
+</div>

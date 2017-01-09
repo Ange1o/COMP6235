@@ -1,0 +1,21 @@
+.affix{
+    top:100px;
+}
+
+#chart {
+	max-height: none;
+	height:500px;
+}
+
+.c3-region.c3-region-0.dark {
+  fill: darkblue;
+  fill-opacity: .1; 
+}
+
+.c3-axis-y-label {
+	font-size: 12px;
+}
+
+.c3-axis-x-label {
+	font-size: 12px;
+}
