@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
 
             var server = client.GetServer();
 
-            database = server.GetDatabase("trends7");
+            database = server.GetDatabase("trends");
             int a = 1;
 
 

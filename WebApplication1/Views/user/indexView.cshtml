@@ -2,325 +2,308 @@
 @{
     ViewBag.Title = "indexView";
 }
+<head>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script src="~/Scripts/jquery-1.10.2.js"></script>
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/bootstrap.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
 
-<script src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
-<script src="~/Scripts/jquery-1.10.2.js"></script>
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery-1.9.1.intellisense.js"></script>
-<script src="~/Scripts/jquery-1.9.1.js"></script>
-<script src="~/Scripts/jquery-1.9.1.min.js"></script>
-@*<script src="~/Script/trend.js"></script>*@
-<meta charset="utf-8">
-<meta charset="utf-8">
-<style>
-    body {
-        padding: 10px;
-    }
-
-    #exTab1 .tab-content {
-        color: white;
-        background-color: #428bca;
-        padding: 5px 15px;
-    }
-
-    #exTab2 h3 {
-        color: white;
-        background-color: #428bca;
-        padding: 5px 15px;
-    }
-
-    /* remove border radius for the tab */
-
-    #exTab1 .nav-pills > li > a {
-        border-radius: 0;
-    }
-
-    /* change border radius for the tab , apply corners on top*/
-
-    #exTab3 .nav-pills > li > a {
-        border-radius: 4px 4px 0 0;
-    }
-
-    #exTab3 .tab-content {
-        color: white;
-        background-color: #428bca;
-        padding: 5px 15px;
-    }
-</style>
+</head>
 <body>
-    <div style="margin-top:100px">
-        <ul class="nav nav-pills">
-            <li id="nav1" class="active"><a href="#t1" data-toggle="tab">@*<span class="glyphicon glyphicon-home"></span>*@ Search</a></li>
-            <li id="nav2" class="inactive"><a href="#t2" data-toggle="tab">@*<span class="glyphicon glyphicon-info-sign"></span>*@ Users</a></li>
-            <li id="nav3" class="inactive"><a href="#t3" data-toggle="tab"><i class="fa fa-envelope-o"></i> Researcher</a></li>
-        </ul>
-        <div class="tab-content clearfix">
-            <div id="t1" class="active tab-pane">
-                <fieldset>
-                    <select id="foodType" name="foodType">
-
-                        <option selected="selected" value="beef_trend">beef</option>
-
-                        <option value="0">Action</option>
-
-                        <option value="1">Drama</option>
-
-                        <option value="2">Comedy</option>
-
-                        <option value="3">Science Fiction</option>
-
-                    </select>
-
-                    <input type="month" id="text1" value="2010-10">
-                    <input type="month" id="text2" value="2013-03">
-                    <input onclick="get();" type="button" value="search">
-                </fieldset>
-                <div id="g1"></div>
-                
-
-               
-                <div>
-
-                    <table id="fList">
-
-                        <tr>
-                            <th>data</th>
-
-                            <th>trend</th>
-                        </tr>
-                    </table>
-                </div>
 
 
-               
-                </div>
-            <div id="t2" class="tab-pane">
-
-
-                <div id="g2">
-
-                    <h1 id="h" align="center"></h1>
-
-
-                </div>
-                </div>
-
-
-            <div id="t3" class="tab-pane">4444</div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Group 1</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#container1">HOME</a></li>
+                    <li><a href="#container2">BUBBLE</a></li>
+                    <li><a href="#container3">DETAIL</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
+
+    <div id="container1"class="container text-center">
+        <h1>THE BAND</h1>
+        <p><em>We love music!</em></p>
+        <p>We have created a fictional band website. Lorem ipsum..</p>
+        <div class="row" style="margin-top:10%">
+            <div class="col-md-4">
+                <p><strong>Type of Food</strong></p>
+                <select class="form-control" id="foodType" name="foodType">
+                    <option selected="selected" value="beef_trend">beef</option>
+                    <option value="potato_trend">potato</option>
+                    <option value="fish_trend">fish</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+               <p><strong>Start Date</strong></p>
+                <input style="position:center" class="form-control" type="month" id="startDate" value="2010-10" min="1997-12" max="2016-12">
+            </div>
+            <div class="col-md-4">
+                <p><strong>End Date</strong></p>
+                <input class="form-control" type="month" id="endDate" value="2013-03" min="1997-12" max="2016-12">
+            </div>
+            <div class="container text-center"style="margin-top:5%">
+                <a href="#container2" onclick="get();" class="btn btn-default">Search</a>
+                </div>
+            </div>
 
     </div>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <div id="container2"class="container text-center">
 
-  
+ 
+            <div id="g1" style="width: 500px; height:500px;"></div>           
+               
+         </div>
+
+
+
+        <div class="modal fade" data-backdrop="false" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="h" align="center"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="table" class="table-hover"></div>
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <a href="#container3" id="more" class="btn btn-default" role="button">More</a>
+                    </div>
+                      
+                    </div>
+        </div>
+                </div>
+
+    <div id="container3" class="container text-center">
+
+        xiaokun SECTION3
+
+
+    </div>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+
+
     <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
+  // Make sure this.hash has a value before overriding default behavior
+  if (this.hash !== "") {
 
+    // Prevent default anchor click behavior
+    event.preventDefault();
 
-        function get() {
-            document.getElementById("fList").innerHTML = "";
-            var text1 = document.getElementById("text1").value;
-            var text2 = document.getElementById("text2").value;
-            var foodtype = document.getElementById("foodType").value;
-//            alert(foodtype);
-            var date1 = new Date(text1);
-            var date2 = new Date(text2);
- //           console.log(date1);
-            $.ajax({
-                type: 'GET',
-                contentType: 'application/json; charset=utf-8',
-                url: '/user/Get?c='+foodtype,
-                success: function (data) {
-            /*        var newHtml = "";
+    // Store hash
+    var hash = this.hash;
 
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
 
-                    $.each(data, function (index, value) {
-                        newHtml += "<tr><td>" + value.keyword + "</td><td>" + value.rising + "</td></tr>";
-                    });
-                    $('#fList').append(newHtml);
-
-                    */
-
-                    document.getElementById("g1").innerHTML = "";
-
-                    var diameter = 500, //max size of the bubbles
-    color = d3.scale.category20b(); //color category
-
-                    var bubble = d3.layout.pack()
-                        .sort(null)
-                        .size([diameter, diameter])
-                        .padding(1.5);
-
-                    var svg = d3.select(g1)
-                        .append("svg")
-                        .attr("width", diameter)
-                        .attr("height", diameter)
-                        .attr("class", "bubble");
-
-                 
-                        //convert numerical values from strings to numbers
-                        data = data.map(function (d) { d.value = +d["rising"]; return d; });
-
-                        function withinInterval(item) {
-                            var dateString = item["Date"];
-                            var date = new Date(dateString);
-                            if (date > date1 && date < date2) { return true; }
-                            return false;
-                        }
-                    
-                        data = data.filter(withinInterval);
-
-
-
-                        function largerThan10(item) {
-                            if (item["rising"] > 10) {
-                                return true;
-                            }
-                            return false;
-                        }
-
-
-                        dataD = data.filter(largerThan10);
-
-                        var listData = [];
-
-                        function removeDuplicate(item) {
-                            if (listData.includes(item["keyword"])) {
-                                return false;
-                            }
-                            listData.push(item["keyword"]);
-                            return true;
-                        }
-
-
-                        data = dataD.filter(removeDuplicate);
-
-
-
-                        //bubbles needs very specific format, convert data to this.
-                        var nodes = bubble.nodes({ children: data }).filter(function (d) { return !d.children; });
-
-                        //setup the chart
-                        var bubbles = svg.append("g")
-                            .attr("transform", "translate(0,0)")
-                            .selectAll(".bubble")
-                            .data(nodes)
-                            .enter();
-
-                        //create the bubbles
-                        bubbles.append("circle")
-                            .attr("r", function (d) { return d.r; })
-                            .attr("cx", function (d) { return d.x; })
-                            .attr("cy", function (d) { return d.y; })
-                            .style("fill", function (d) { return color(d.value); })
-                            .on('click', function (d) {
-                                d3.select("#t1").attr("class", "tab-pane");
-                                getRecommandation(dataD, d["keyword"]);
-                                d3.select("#t2").attr("class", "active tab-pane");
-                                d3.select("#nav1").attr("class", "inactive");
-                                d3.select("#nav2").attr("class", "active");
-                                d3.select("#nav3").attr("class", "inactive");
-                            });
-
-                        //format the text for each bubble
-                        bubbles.append("text")
-                            .attr("x", function (d) { return d.x; })
-                            .attr("y", function (d) { return d.y + 5; })
-                            .attr("text-anchor", "middle")
-                            .text(function (d) { return d["keyword"]; })
-                            .style({
-                                "fill": "black",
-                                "font-family": "Helvetica Neue, Helvetica, Arial, san-serif",
-                                "font-size": "10px"
-                            });
-                
-
-
-                    var Outerkeyword = null;
-
-                    var count = 0;
-
-                   
-
-                    function getRecommandation(data, keyword) {
-
-                    
-
-                        Outerkeyword = keyword;
-
-                        data = data.filter(getKeyword);
-                        
-
-                        document.getElementById("h").innerHTML = keyword;
-
-
-                        var legend = d3.select(g2).append("table").attr('class', 'legend');
-
-                        legend.append("caption").innerHTML = keyword;
-
-                        var tr = legend.append("tbody").selectAll("tr").data(data).enter()
-                        .append("tr");
-
-                        tr.append("td").text(function (d) { return d.query_result_title; });
-
-                        var td = tr.append("td").attr("class", 'legendFreq');
-                        td.append("a")
-                        .attr("href", function (d) { return d.query_result_link; })
-                        .attr("target", "_blank")
-                        .text(function (d) { return d.query_result_link });
-                    }
-
-
-
-                    function getKeyword(item) {
-                        if (Outerkeyword === (item["keyword"])) {
-                            count++;
-                            return true;
-                        }
-                        return false;
-                    }
-
-
-
-
-
-
-                    error: function each(data) {
-                        alert('Error in getting result');
-                    }
-                }
-            });
-        }
-
-        /*
-        var text1 = "";
-        var text2 = "";
-        $.ajax({
-            type: 'GET',
-            contentType: 'application/json; charset=utf-8',
-            url: '/user/GetAll',
-            success: function (jsdata) {
-                var newHtml = "";
-                $.each(jsdata, function (index, value) {
-                    newHtml += "<tr><td>" + value.keyword + "</td><td>" + value.rising + "</td></tr>";
-                    
-
-                });
-                $('#fList').append(newHtml);
-
-              
-
-                error: function each(jsdata) {
-                    alert('Error in getting result');
-                }
-            }});*/
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+    } // End if
+  });
+})
     </script>
-    </body>
+
+
+
+    <script type="text/javascript">
+$(document).ready(function(){
+	$('#more').click(function(){
+	    $('#myModal').css("display", "none")
+        .attr('class', 'modal fade');
+	    $('body').removeClass("modal-open");
+	});
+});
+    </script>
+
+
+                <script>
+
+
+
+                    function get() {
+                        var startDateString = document.getElementById("startDate").value;
+                        var endDateString = document.getElementById("endDate").value;
+                        var foodtype = document.getElementById("foodType").value;
+                        var startDate = new Date(startDateString);
+                        var endDate = new Date(endDateString);
+                        $.ajax({
+                            type: 'GET',
+                            contentType: 'application/json; charset=utf-8',
+                            url: '/user/Get?c=' + foodtype,
+                            success: function (data) {
+
+                                document.getElementById("g1").innerHTML = "";
+
+                                var diameter = 500, //max size of the bubbles
+                                color = d3.scale.category20b(); //color category
+
+                                var bubble = d3.layout.pack()
+                                    .sort(null)
+                                    .size([diameter, diameter])
+                                    .padding(1.5);
+
+                                var svg = d3.select(g1)
+                                    .append("svg")
+                                    .attr("width", diameter)
+                                    .attr("height", diameter)
+                                    .attr("class", "bubble");
+
+
+                                //convert numerical values from strings to numbers
+                                data = data.map(function (d) { d.value = +d["rising"]; return d; });
+
+                                function withinInterval(item) {
+                                    var dateString = item["Date"];
+                                    var date = new Date(dateString);
+                                    if (date > startDate && date < endDate) { return true; }
+                                    return false;
+                                }
+
+                                data = data.filter(withinInterval);
+
+
+
+                                function largerThan10(item) {
+                                    if (item["rising"] > 10) {
+                                        return true;
+                                    }
+                                    return false;
+                                }
+
+
+                                dataD = data.filter(largerThan10);
+
+                                var listData = [];
+
+                                function removeDuplicate(item) {
+                                    if (listData.includes(item["keyword"])) {
+                                        return false;
+                                    }
+                                    listData.push(item["keyword"]);
+                                    return true;
+                                }
+
+
+                                data = dataD.filter(removeDuplicate);
+
+
+
+                                //bubbles needs very specific format, convert data to this.
+                                var nodes = bubble.nodes({ children: data }).filter(function (d) { return !d.children; });
+
+                                //setup the chart
+                                var bubbles = svg.append("g")
+                                    .attr("transform", "translate(0,0)")
+                                    .selectAll(".bubble")
+                                    .data(nodes)
+                                    .enter();
+
+                                //create the bubbles
+                                bubbles.append("circle")
+                                    .attr("r", function (d) { return d.r; })
+                                    .attr("cx", function (d) { return d.x; })
+                                    .attr("cy", function (d) { return d.y; })
+                                    .style("fill", function (d) { return color(d.value); })
+                                    .attr("class", "btn")
+                                    .attr("data-toggle", "modal")
+                                    .attr("data-target", "#myModal")
+                                    .on('click', function (d) {
+                                        d3.select("#t1").attr("class", "tab-pane");
+                                        getRecommandation(dataD, d["keyword"]);
+                                        d3.select("#t2").attr("class", "active tab-pane");
+                                        d3.select("#nav1").attr("class", "inactive");
+                                        d3.select("#nav2").attr("class", "active");
+                                        d3.select("#nav3").attr("class", "inactive");
+                                    });
+
+                                //format the text for each bubble
+                                bubbles.append("text")
+                                    .attr("x", function (d) { return d.x; })
+                                    .attr("y", function (d) { return d.y + 5; })
+                                    .attr("text-anchor", "middle")
+                                    .text(function (d) { return d["keyword"]; })
+                                    .style({
+                                        "fill": "black",
+                                        "font-family": "Helvetica Neue, Helvetica, Arial, san-serif",
+                                        "font-size": "10px"
+                                    });
+
+
+
+                                var Outerkeyword = null;
+
+                                function getRecommandation(data, keyword) {
+
+                                    document.getElementById("table").innerHTML = "";
+
+                                    Outerkeyword = keyword;
+
+                                    data = data.filter(getKeyword);
+
+                                    document.getElementById("h").innerHTML = keyword;
+
+                                    var legend = d3.select(table);
+
+
+
+                                    var tr = legend.append("tbody").selectAll("tr").data(data).enter()
+                                    .append("tr");
+
+                                    tr.append("td").text(function (d) { return d.query_result_title; });
+
+                                    var td = tr.append("td");
+                                    td.append("a")
+                                    .attr("href", function (d) { return d.query_result_link; })
+                                    .attr("target", "_blank")
+                                    .text(function (d) { return d.query_result_link });
+                                }
+
+
+
+                                function getKeyword(item) {
+                                    if (Outerkeyword === (item["keyword"])) {
+                                        return true;
+                                    }
+                                    return false;
+                                }
+
+
+                                error: function each(data) {
+                                    alert('Error in getting result');
+                                }
+                            }
+                        });
+                    }
+                </script>
+</body>
