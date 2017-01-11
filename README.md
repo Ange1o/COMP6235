@@ -1,2 +1,1 @@
-# COMP6235
-GROUP COURSEWORK
+## Welcome to Comp6235
