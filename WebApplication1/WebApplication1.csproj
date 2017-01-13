@@ -185,6 +185,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="image\GoogleTrendsLogo.png" />
     <Content Include="json\beef_trend.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="lib\jquery.onepage-scroll.min.js" />
@@ -231,6 +232,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="csv\" />
+    <Folder Include="lib\c3-0.4.11\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <PropertyGroup>

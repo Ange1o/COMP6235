@@ -3,7 +3,9 @@
     ViewBag.Title = "indexView";
 }
 <head>
-    <link href="~/css/style.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -11,10 +13,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
 
+    <link href="~/lib/c3-0.4.11/c3.css" rel="stylesheet" />
+
+    <script src="~/lib/c3-0.4.11/c3.min.js"></script>
+    <script src="~/lib/c3-0.4.11/c3.js"></script>
+    <link href="~/css/style.css" rel="stylesheet" />
 
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
 
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -24,63 +32,77 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Group 1</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#container1">HOME</a></li>
-                    <li><a href="#container2">BUBBLE</a></li>
-                    <li><a href="#container3">DETAIL</a></li>
+                <ul class="nav navbar-nav navbar-right" id="nav">
+                    <li class="active" id="bar1"><a href="#container1">HOME</a></li>
+                    <li id="bar2"><a class="" href="#container2">BUBBLE</a></li>
+                    <li id="bar3"><a class="" href="#container3">DETAIL</a></li>
+                    <li id="bar4"><a class="" href="#container4">PREDICTION</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
 
-    <div id="container1"class="container text-center">
-        <h1>THE BAND</h1>
-        <p><em>We love music!</em></p>
-        <p>We have created a fictional band website. Lorem ipsum..</p>
-        <div class="row" style="margin-top:10%">
-            <div class="col-md-4">
-                <p><strong>Type of Food</strong></p>
-                <select class="form-control" id="foodType" name="foodType">
-                    <option selected="selected" value="beef_trend">beef</option>
-                    <option value="potato_trend">potato</option>
-                    <option value="fish_trend">fish</option>
-                </select>
+
+
+    <div class="bg-1">
+        <div id="container1" class="container text-center" style="width:100%;height:100vh;padding-top:10%">
+
+            <div class="jumbotron text-center">
+                <h1>Google trend and foodprice</h1>
+                <img src="~/image/GoogleTrendsLogo.png" />
             </div>
-            <div class="col-md-4">
-               <p><strong>Start Date</strong></p>
-                <input style="position:center" class="form-control" type="month" id="startDate" value="2010-10" min="1997-12" max="2016-12">
-            </div>
-            <div class="col-md-4">
-                <p><strong>End Date</strong></p>
-                <input class="form-control" type="month" id="endDate" value="2013-03" min="1997-12" max="2016-12">
-            </div>
-            <div class="container text-center"style="margin-top:5%">
-                <a href="#container2" onclick="get();" class="btn btn-default">Search</a>
+            
+
+            
+
+            <div class="row" style="margin-top:5%">
+                <div class="col-md-4">
+                    <p><strong>Type of Food</strong></p>
+                    <select class="form-control,center-block" id="foodType" name="foodType" style="width:200%;height:200%;" placeholder=".col-md-4">
+                        <option selected="selected" value="beef_trend">beef</option>
+                        <option value="potato_trend">potato</option>
+                        <option value="fish_trend">fish</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <p><strong>Start Date</strong></p>
+                    <input style="width:200%;height:200%" placeholder=".col-md-4" class="form-control,center-block" type="month" id="startDate" value="2012-01" min="2012-01" max="2016-11">
+                </div>
+                <div class="col-md-4">
+                    <p><strong>End Date</strong></p>
+                    <input class="form-control,center-block" placeholder=".col-md-4" style="width:200%;height:200% " type="month" id="endDate" value="2016-11" min="2012-01" max="2016-11">
+                </div>
+                <div class="container text-center" style="margin-top:5%;padding-top:5%">
+                    <a href="#container2" id="search" onclick="get();" class="btn btn-default btn-lg smooth" style="color:black; height:200%;">Search</a>
                 </div>
             </div>
 
+        </div>
+    </div>
+    <div class="bg-2">
+        <div id="container2" style="height:100vh" class="container text-center">
+
+            <div id="text1" class="jumbotron text-center text-uppercase" style="background-color: #aaaaaa;color:#ffffff" >
+               
+            </div>
+
+            <div id="g1" style="position:center;"></div>
+
+        </div>
     </div>
 
-
-    <div id="container2"class="container text-center">
-
- 
-            <div id="g1" style="width: 500px; height:500px;"></div>           
-               
-         </div>
-
-
-
+    <div class="bg-2">
         <div class="modal fade" data-backdrop="false" id="myModal" role="dialog">
-            <div class="modal-dialog">
+            <div class="modal-dialog,modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close smooth depadding" data-dismiss="modal">&times;</button>
                         <h4 id="h" align="center"></h4>
                     </div>
                     <div class="modal-body">
@@ -89,221 +111,754 @@
 
                     <div class="modal-footer">
 
-                        <a href="#container3" id="more" class="btn btn-default" role="button">More</a>
+                        <a href="#container3" id="more" class="btn btn-default smooth depadding" role="button" style="color:black">More</a>
                     </div>
-                      
-                    </div>
-        </div>
+
                 </div>
-
-    <div id="container3" class="container text-center">
-
-        xiaokun SECTION3
-
-
+            </div>
+        </div>
     </div>
+    <div class="bg-1">
+        <div id="container3" style="height:100vh" class="container text-center">
 
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+            <div id="text3" class="jumbotron text-center text-uppercase">
 
+            </div>
+
+            <div id="g3" style="position:center;"></div>
+
+        </div>
+    </div>
+    <div class="bg-2">
+        <div id="container4" style="height:100vh" class="container text-center">
+            <div class="jumbotron text-center" style="background-color:#aaaaaa;color:#ffffff">
+                <h1>PREDICTION</h1>
+            </div>
+            <div id="g4" style="position:center;"></div>
+
+        </div>
+    </div>
+    <footer class="text-center">
+        <a class="up-arrow" href="#container1" data-toggle="tooltip" title="TO TOP" id="tooltip">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a><br><br>
+
+
+    </footer>
 
     <script>
 $(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Initialize Tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+    $("#tooltip").on("click", function () {
+        $(".nav li").removeClass("active");
+        $("#bar1").addClass("active");
+    });
 
-  // Make sure this.hash has a value before overriding default behavior
-  if (this.hash !== "") {
-
-    // Prevent default anchor click behavior
-    event.preventDefault();
-
-    // Store hash
-    var hash = this.hash;
-
-    // Using jQuery's animate() method to add smooth page scroll
-    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-    $('html, body').animate({
-      scrollTop: $(hash).offset().top
-    }, 900, function(){
-
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-      });
-    } // End if
-  });
 })
+
+$(document).ready(function () {
+    // Initialize Tooltip
+    $("#more").on("click", function () {
+        get3(); get4();
+    });
+
+})
+
+
+
+    </script>
+ 
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8">   </script>
+
+    <script>
+            $(document).ready(function () {
+                // Add smooth scrolling to all links in navbar + footer link
+                $(".navbar a, footer a,.smooth").on('click', function (event) {
+
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+
+                        // Store hash
+                        var hash = this.hash;
+
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 900, function () {
+
+                            // Add hash (#) to URL when done scrolling (default click behavior)
+                            window.location.hash = hash;
+                        });
+                    } // End if
+                });
+            })
     </script>
 
 
 
     <script type="text/javascript">
-$(document).ready(function(){
-	$('#more').click(function(){
-	    $('#myModal').css("display", "none")
-        .attr('class', 'modal fade');
-	    $('body').removeClass("modal-open");
-	});
-});
+            $(document).ready(function () {
+
+                $(".nav li").on("click", function () {
+                    $(".nav li").removeClass("active");
+                    $(this).addClass("active");
+                });
+
+
+
+                $('#more').click(function () {
+                    $(".nav li").removeClass("active");
+                    $("#bar3").addClass("active");
+                    $('#myModal').css("display", "none")
+                    .attr('class', 'modal fade');
+                    $('body').removeClass("modal-open");
+                });
+
+
+
+
+            });
     </script>
 
 
-                <script>
+    <script>
+
+
+        var keywordForg3 = null;
+        var dateForg3 = null;
+        var dataPrice = null;
+        var foodtype = null;
+
+            function get() {
+                $(".nav li").removeClass("active");
+                $("#bar2").addClass("active");
+
+                var startDateString = document.getElementById("startDate").value;
+                var endDateString = document.getElementById("endDate").value;
+                foodtype = document.getElementById("foodType").value;
+                var startDate = new Date(startDateString);
+                var endDate = new Date(endDateString);
+                $.ajax({
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    url: '/user/Get?c=' + foodtype,
+                    success: function (data) {
+
+
+                        document.getElementById("g1").innerHTML = "";
+                        document.getElementById("text1").innerHTML = "";
+                        $("#text1").append("<h1 >" + foodtype + "</h1>");
+
+                        var diameter = 800; //max size of the bubbles
+                       
+
+                        var bubble = d3.layout.pack()
+                            .sort(null)
+                            .size([diameter, diameter])
+                            .padding(1.5);
+
+
+                        var svg = d3.select(g1)
+                            .append("svg")
+                            .attr("width", diameter)
+                            .attr("height", diameter)
+                            .attr("class", "bubble");
+
+
+                        //convert numerical values from strings to numbers
+
+                       
+                        dataOrigin = data.map(function (d) {
+                            d.value = +d["rising"];
+                            return d;
+                        });
+
+
+                        var listForGettingPrice = [];
+
+                        function getPrice(item) {
+                            if (listForGettingPrice.includes(item["Date"])) {
+                                return false;
+                            }
+                            listForGettingPrice.push(item["Date"]);
+                            return true;
+                        }
+
+                        dataPrice = dataOrigin.filter(getPrice);
+
+
+                        function withinInterval(item) {
+                            var dateString = item["Date"];
+                            var date = new Date(dateString);
+                            if (date > startDate && date < endDate) { return true; }
+                            return false;
+                        }
+
+                        data1 = dataOrigin.filter(withinInterval);
+
+
+                        function largerThan10(item) {
+                            if (item["rising"] > 10) {
+                                return true;
+                            }
+                            return false;
+                        }
+
+                        dataLarger = data1.filter(largerThan10);
+
+                        var listData = [];
+
+                        function removeDuplicate(item) {
+                            if (listData.includes(item["keyword"])) {
+                                return false;
+                            }
+                            listData.push(item["keyword"]);
+                            return true;
+                        }
+
+
+                        data = dataLarger.filter(removeDuplicate);
+
+
+                        var max = 0;
+                        var min = 0;
+
+                        data = data.map(function (d) {
+                            d.valueTS = +d["type_score"];
+                            max = (max > d.value) ? max : d.value;
+                            min = (min < d.value) ? min : d.value;
+
+                            return d;
+                        });
+                        data = data.map(function (d) { d.valueFS = +d["factor_score"]; return d; });
+                        data = data.map(function (d) { d.valuep = +d["price"]; return d; });
+                        data = data.map(function (d) { d.valueP = +d["Percentage"]; return d; });
+
+
+                        var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 
 
-                    function get() {
-                        var startDateString = document.getElementById("startDate").value;
-                        var endDateString = document.getElementById("endDate").value;
-                        var foodtype = document.getElementById("foodType").value;
-                        var startDate = new Date(startDateString);
-                        var endDate = new Date(endDateString);
-                        $.ajax({
-                            type: 'GET',
-                            contentType: 'application/json; charset=utf-8',
-                            url: '/user/Get?c=' + foodtype,
-                            success: function (data) {
+                        var colors = ["#68c2ff", "#72c6ff", "#84ceff", "#89d0ff", "#f98e9c", "#fc8393", "#ff7c8e", "#ff7285"];
 
-                                document.getElementById("g1").innerHTML = "";
+                        var color = d3.scale.quantile()
+                          .domain([min,0,max])
+                          .range(colors);
 
-                                var diameter = 500, //max size of the bubbles
-                                color = d3.scale.category20b(); //color category
+                        //bubbles needs very specific format, convert data to this.
+                        var nodes = bubble.nodes({ children: data }).filter(function (d) { return !d.children; });
 
-                                var bubble = d3.layout.pack()
-                                    .sort(null)
-                                    .size([diameter, diameter])
-                                    .padding(1.5);
+                        //setup the chart
+                        var bubbles = svg.append("g")
+                            .attr("transform", "translate(0,0)")
+                            .selectAll(".bubble")
+                            .data(nodes)
+                            .enter();
+                        var tooltip = d3.select("body")
+                             .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0.0);
+                        //create the bubbles
+                        bubbles.append("circle")
+                            .attr("r", function (d) { return d.r; })
+                            .attr("cx", function (d) { return d.x; })
+                            .attr("cy", function (d) { return d.y; })
+                            .style("fill", function (d) { return color(d.valueTS); })
+                            .attr("class", "btn")
+                            .attr("data-toggle", "modal")
+                            .attr("data-target", "#myModal")
+                            .on('click', function (d) {
+                                getRecommandation(dataLarger, d["keyword"]);
+                                keywordForg3 = d["keyword"];
+                                dateForg3 = d["Date"];
+                            })
+                        .on("mouseover", function (d) {
 
-                                var svg = d3.select(g1)
-                                    .append("svg")
-                                    .attr("width", diameter)
-                                    .attr("height", diameter)
-                                    .attr("class", "bubble");
+                            div.transition()
+               .duration(200)
+               .style("opacity", .9);
 
 
-                                //convert numerical values from strings to numbers
-                                data = data.map(function (d) { d.value = +d["rising"]; return d; });
+                            div.html("score: " + d.valueTS + "\n" + "factor: " + d["factor"])
 
-                                function withinInterval(item) {
-                                    var dateString = item["Date"];
-                                    var date = new Date(dateString);
-                                    if (date > startDate && date < endDate) { return true; }
-                                    return false;
+                .style("left", (d3.event.pageX + 10) + "px")
+                                    .style("top", (d3.event.pageY + 10) + "px")
+                                     
+                        })
+                            .on("mousemove", function (d) {
+                                div .style("left", (d3.event.pageX + 10) + "px")
+                                    .style("top", (d3.event.pageY + 10) + "px")
+                            })
+                            .on("mouseout", function (d) {
+                                div.transition()
+                 .duration(500)
+                 .style("opacity", 0);
+                            });;
+
+                        //format the text for each bubble
+                        bubbles.append("text")
+                            .attr("x", function (d) { return d.x; })
+                            .attr("y", function (d) { return d.y + 5; })
+                            .attr("text-anchor", "middle")
+                            .text(function (d) { return d["keyword"]; })
+                            .style({
+                                "fill": "white",
+                                "font-family": "Helvetica Neue, Helvetica, Arial, san-serif",
+                                "font-size": "20px"
+                            });
+
+
+
+
+                        var Outerkeyword = null;
+
+                        function getRecommandation(data, keyword) {
+
+                            document.getElementById("table").innerHTML = "";
+
+
+                            Outerkeyword = keyword;
+
+                            data = data.filter(getKeyword);
+
+                            document.getElementById("h").innerHTML = keyword;
+
+                            var legend = d3.select(table);
+
+
+
+                            var tr = legend.append("tbody").selectAll("tr").data(data).enter()
+                            .append("tr");
+
+                            tr.append("td").text(function (d) { return d.query_result_title; });
+
+                            var td = tr.append("td");
+                            td.append("a")
+                            .attr("href", function (d) { return d.query_result_link; })
+                            .attr("target", "_blank")
+                            .text(function (d) { return d.query_result_link });
+                        }
+
+
+
+                        function getKeyword(item) {
+                            if (Outerkeyword === (item["keyword"])) {
+                                return true;
+                            }
+                            return false;
+                        }
+
+
+
+
+
+
+
+
+
+
+                      //  });
+
+
+
+
+                    }
+                });
+            }
+
+
+
+
+
+
+
+
+
+
+            function get3() {
+                document.getElementById("text3").innerHTML = "";
+                $("#text3").append("<h1 >" + keywordForg3 + "</h1>");
+
+                // parse date values in appropriate format
+                var parseDate = d3.time.format("%Y-%m-%d").parse;
+
+                var s = dateForg3;
+                var point = parseDate(s);
+
+                var select1 = new Date(s);
+                var select2 = new Date(s);
+
+                var end = DateAdd(select1);
+
+                var begin = DateMinue(select2);
+
+                var boundary1 = new Date("2012 Jan");
+                var boundary2 = new Date("2016 Nov");
+
+                if (begin < boundary1) {
+                    begin = boundary1;
+                }
+
+                if (end > boundary2) {
+                    end = boundary2;
+                }
+                function DateAdd(d) {
+                    d.setMonth(d.getMonth() + 6);
+                    return d;
+                }
+
+                function DateMinue(d) {
+                    d.setMonth(d.getMonth() - 6);
+                    return d;
+                }
+
+                /*                     d3.csv("data/baconP.csv", function (d) {
+
+                                         return {
+                                             date: d["date"],
+                                             price: d["price"],
+                                         };
+                                     }, function (error, data) {*/
+                // error case
+                // if (error) throw error;
+
+                // store data in columns for c3 to get data in specific format
+                var time = [],
+                    prices = [];
+                time.push("x");
+                prices.push("Retail price index");
+
+
+                console.log(dataPrice);
+
+                // make every date a Javascript date object format
+                dataPrice.forEach(function (d1) {
+                    d1.date = parseDate(d1["Date"]);
+                    // console.log(d1.date);
+                    time.push(d1.date);
+                    prices.push(parseFloat(d1["price"]));
+                });
+
+
+                console.log(time);
+                console.log(prices);
+                console.log(begin);
+                console.log(end);
+                console.log(point);
+
+
+
+                //create time series graph
+                create_line(time, prices, begin, end, point);
+
+
+                function create_line(time, price, begin, end, point) {
+                    /* body... */
+                    var chart = c3.generate({
+
+                        bindto: d3.select('#g3'),
+                        size: {
+                            height: 400
+                        },
+                        data: {
+                            x: "x",
+                            xFormat: '%Y-%m-%d',
+                            columns: [
+                                time,
+                                price,
+                                begin,
+                                end
+                            ]
+                        },
+                        subchart: {
+                            show: true
+                        },
+                        color: {
+                            pattern: ['#7986C7']
+                        },
+                        axis: {
+                            x: {
+                                type: 'timeseries',
+                                label: {
+                                    text: " Time of Year ",
+                                    position: "inner-right"
+                                },
+                                tick: {
+                                    values: ["2012-01-01", "2013-01-01", "2014-01-01", "2015-01-01", "2016-01-01"],
+                                    format: '%Y'
+                                },
+                                extent: [begin, end]
+                            },
+                            y: {
+                                label: {
+                                    text: " Retail price index",
+                                    position: "outer-middle"
+                                },
+                                tick: {
+                                    format: d3.format('.2f')
                                 }
+                            }
+                        },
+                        point: {
+                            show: false
+                        },
+                        grid: {
+                            x: {
+                                lines: [
+                                    { value: point, text: keywordForg3 }
 
-                                data = data.filter(withinInterval);
+                                ]
+                            }
+                        },
+                        legend: {
+                            show: false
+                        }
+                    });
+                }
+
+            }
+        </script>
+
+       
+
+    <script>
+            function get4() {
+
+                
+
+                var parseDate = d3.time.format("%Y %b").parse;
+
+                var file = "/csv/" + foodtype + ".csv";
+
+                d3.csv(file, function (d) {
+
+                    return {
+                        date: d["date"],
+                        value1: d["real value"],
+                        value2: d["prediction from price change data"],
+                        value3: d["prediction from price and frequency data"],
+                    };
+                }, function (error, data) {
+                    // error case
+                    // if (error) throw error;
+
+                    // store data in columns for c3 to get data in specific format
+                    var time = [],
+                        value1s = [],
+                        value2s = [],
+                        value3s = [];
+                    time.push("x");
+                    //prices.push("Price of 1 GBP in USD");
+
+                    value1s.push('real value');
+                    value2s.push('prediction from price change data');
+                    value3s.push('prediction from price and frequency data');
+
+                    // make every date a Javascript date object format
+                    data.forEach(function (d1) {
+                        d1.date = parseDate(d1.date);
+                        // console.log(d1.date);
+                        time.push(d1.date);
+                        value1s.push(parseFloat(d1.value1));
+                        value2s.push(parseFloat(d1.value2));
+                        value3s.push(parseFloat(d1.value3));
+                    });
+               
+                    //create time series graph 
+                    create_line(time, value1s, value2s, value3s);
 
 
+                    function create_line(time, value1s, value2s, value3s) {
+                        /* body... */
+                        var chart = c3.generate({
 
-                                function largerThan10(item) {
-                                    if (item["rising"] > 10) {
-                                        return true;
+                            bindto: d3.select('#g4'),
+                            size: {
+                                height: 400
+                            },
+                            data: {
+                                x: 'x',
+                                xFormat: "%Y %b",
+                                xs: {
+                                    'real value': 'x',
+                                    'prediction from price change data': 'x',
+                                    'prediction from price and frequency data': 'x',
+                                },
+                                columns: [
+                                    time,
+                                    value1s,
+                                    value2s,
+                                    value3s
+                                ]
+                            },
+                            subchart: {
+                                show: true
+                            },
+                            color: {
+                                pattern: ['#241de5', '#3cad4f', '#d14f2b']
+                            },
+                            axis: {
+                                x: {
+                                    type: 'timeseries',
+                                    label: {
+                                        text: " Time of Year ",
+                                        position: "inner-right"
+                                    },
+                                    tick: {
+                                        values: ["2004 Jan", "2005 Jan", "2006 Jan", "2007 Jan", "2008 Jan", "2009 Jan", "2010 Jan", "2011 Jan", "2012 Jan", "2013 Jan", "2014 Jan", "2015 Jan", "2016 Jan"],
+                                        format: "%Y"
+                                    },
+                                },
+                                y: {
+                                    label: {
+                                        text: "Amplitude of change",
+                                        position: "outer-middle"
+                                    },
+                                    tick: {
+                                        format: d3.format('.2f')
                                     }
-                                    return false;
                                 }
-
-
-                                dataD = data.filter(largerThan10);
-
-                                var listData = [];
-
-                                function removeDuplicate(item) {
-                                    if (listData.includes(item["keyword"])) {
-                                        return false;
-                                    }
-                                    listData.push(item["keyword"]);
-                                    return true;
-                                }
-
-
-                                data = dataD.filter(removeDuplicate);
-
-
-
-                                //bubbles needs very specific format, convert data to this.
-                                var nodes = bubble.nodes({ children: data }).filter(function (d) { return !d.children; });
-
-                                //setup the chart
-                                var bubbles = svg.append("g")
-                                    .attr("transform", "translate(0,0)")
-                                    .selectAll(".bubble")
-                                    .data(nodes)
-                                    .enter();
-
-                                //create the bubbles
-                                bubbles.append("circle")
-                                    .attr("r", function (d) { return d.r; })
-                                    .attr("cx", function (d) { return d.x; })
-                                    .attr("cy", function (d) { return d.y; })
-                                    .style("fill", function (d) { return color(d.value); })
-                                    .attr("class", "btn")
-                                    .attr("data-toggle", "modal")
-                                    .attr("data-target", "#myModal")
-                                    .on('click', function (d) {
-                                        d3.select("#t1").attr("class", "tab-pane");
-                                        getRecommandation(dataD, d["keyword"]);
-                                        d3.select("#t2").attr("class", "active tab-pane");
-                                        d3.select("#nav1").attr("class", "inactive");
-                                        d3.select("#nav2").attr("class", "active");
-                                        d3.select("#nav3").attr("class", "inactive");
-                                    });
-
-                                //format the text for each bubble
-                                bubbles.append("text")
-                                    .attr("x", function (d) { return d.x; })
-                                    .attr("y", function (d) { return d.y + 5; })
-                                    .attr("text-anchor", "middle")
-                                    .text(function (d) { return d["keyword"]; })
-                                    .style({
-                                        "fill": "black",
-                                        "font-family": "Helvetica Neue, Helvetica, Arial, san-serif",
-                                        "font-size": "10px"
-                                    });
-
-
-
-                                var Outerkeyword = null;
-
-                                function getRecommandation(data, keyword) {
-
-                                    document.getElementById("table").innerHTML = "";
-
-                                    Outerkeyword = keyword;
-
-                                    data = data.filter(getKeyword);
-
-                                    document.getElementById("h").innerHTML = keyword;
-
-                                    var legend = d3.select(table);
-
-
-
-                                    var tr = legend.append("tbody").selectAll("tr").data(data).enter()
-                                    .append("tr");
-
-                                    tr.append("td").text(function (d) { return d.query_result_title; });
-
-                                    var td = tr.append("td");
-                                    td.append("a")
-                                    .attr("href", function (d) { return d.query_result_link; })
-                                    .attr("target", "_blank")
-                                    .text(function (d) { return d.query_result_link });
-                                }
-
-
-
-                                function getKeyword(item) {
-                                    if (Outerkeyword === (item["keyword"])) {
-                                        return true;
-                                    }
-                                    return false;
-                                }
-
-
-                                error: function each(data) {
-                                    alert('Error in getting result');
-                                }
+                            },
+                            point: {
+                                show: false
+                            },
+                            legend: {
+                                show: true
                             }
                         });
                     }
-                </script>
+                });
+
+/**
+
+                var svg = d3.select("#g4"),
+                    margin = { top: 50, right: 350, bottom: 30, left: 50 },
+                    width = svg.attr("width") - margin.left - margin.right,
+                    height = svg.attr("height") - margin.top - margin.bottom,
+                    ga = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                var timeFormat = d3.timeParse("%Y %b");
+
+                var xScale = d3.scaleTime().range([0, width]);
+
+                var yScale = d3.scaleLinear().range([height, 0]);
+
+                var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+                var line = d3.line()
+                    .curve(d3.curveBasis)
+                    .x(function (d) { return xScale(d.date); })
+                    .y(function (d) { return yScale(d.prediction); });
+
+                svg.append("text")
+                  .attr("x", (width / 2))
+                  .attr("y", (margin.top / 2))
+                  .attr("text-anchor", "middle")
+                  .style("font-size", "20px")
+                  .text("The feedforward neural network");
+                // gridlines in x axis function
+                function make_x_gridlines() {
+                    return d3.axisBottom(xScale)
+                        .ticks(5)
+                }
+
+                // gridlines in y axis function
+                function make_y_gridlines() {
+                    return d3.axisLeft(yScale)
+                        .ticks(5)
+                }
+
+                var file = "~/csv/"+foodtype + ".csv";
+                d3.csv(file, type, function (error, data) {
+                    if (error) throw error;
+
+                    var types = data.columns.slice(1).map(function (id) {
+                        return {
+                            id: id,
+                            values: data.map(function (d) {
+                                return { date: d.date, prediction: d[id] };
+                            })
+                        };
+                    });
+
+                    xScale.domain(d3.extent(data, function (d) { return d.date; }));
+
+                    yScale.domain([
+                      d3.min(types, function (c) { return d3.min(c.values, function (d) { return d.prediction; }); }),
+                      d3.max(types, function (c) { return d3.max(c.values, function (d) { return d.prediction; }); })
+                    ]);
+
+                    color.domain(types.map(function (c) { return c.id; }));
+
+                    ga.append("g")
+                        .attr("class", "axis axis--xScale")
+                        .attr("transform", "translate(0," + height + ")")
+                        .call(d3.axisBottom(xScale));
+
+                    ga.append("g")
+                        .attr("class", "axis axis--y")
+                        .call(d3.axisLeft(yScale))
+                        .append("text")
+                        .attr("fill", "#000")
+                        .attr("transform", "rotate(-90)")
+                        .attr("y", 6)
+                        .attr("dy", "0.71em")
+                        .style("text-anchor", "end")
+                        .text("Amplitude of change");
+
+                    var way = ga.selectAll(".way")
+                      .data(types)
+                      .enter().append("g")
+                        .attr("class", "way");
+
+                    way.append("path")
+                        .attr("class", "line")
+                        .attr("d", function (d) { return line(d.values); })
+                        .style("stroke", function (d) { return color(d.id); });
+
+                    way.append("text")
+                        .datum(function (d) { return { id: d.id, value: d.values[d.values.length - 1] }; })
+                        .attr("transform", function (d) { return "translate(" + xScale(d.value.date) + "," + yScale(d.value.prediction) + ")"; })
+                        .attr("x", 3)
+                        .attr("dy", "0.45em")
+                        .style("font", "15px sans-serif")
+                        .text(function (d) { return d.id; });
+
+
+                    // add the X gridlines
+                    ga.append("g")
+                        .attr("class", "grid")
+                        .attr("transform", "translate(0," + height + ")")
+                        .call(make_x_gridlines()
+                            .tickSize(-height)
+                            .tickFormat("")
+                        )
+
+                    // add the Y gridlines
+                    ga.append("g")
+                        .attr("class", "grid")
+                        .call(make_y_gridlines()
+                            .tickSize(-width)
+                            .tickFormat("")
+                        )
+                });
+
+                function type(d, _, columns) {
+                    d.date = timeFormat(d.date);
+                    for (var i = 1, n = columns.length, c; i < n; ++i) d[c = columns[i]] = +d[c];
+                    return d;
+                }
+ */
+            }
+
+           
+    </script>
 </body>

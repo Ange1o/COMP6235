@@ -28,11 +28,17 @@ namespace MvcApplication1.Models
         public string keyword { get; set; }
         public string query_result_des { get; set; }
 
+
         //public string query_result_content { get; set; }
        
         public string top_query_id { get; set; }
+        public string factor { get; set; }
+        public string factor_score { get; set; }
+        public string type { get; set; }
 
-
+        public string type_score { get; set; }
+        public string price { get; set; }
+        public string Percentage { get; set; }
 
 
     }
